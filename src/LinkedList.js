@@ -1,7 +1,7 @@
 class LinkedList {
-    constructor(head = null, length = 0) {
-        this.head = head
-        this.length = length
+    constructor() {
+        this.head = null
+        this.length = 0
     }
 
 
@@ -148,22 +148,24 @@ class LinkedList {
 
     insertAt(value, index) {
 
-        let newNode;
-
-        if(index === 1 ) {
-            newNode = new Node( value , this.head)
-        }
-
-
+        if(index === 1 || index === 0) {
+            this.prepend(value)
+        } 
 
         let current = this.head;
         let prev;
         let counter = 1;
 
         while (counter <= this.length) {
-            if()
+            if(counter == index) {
+                const newNode = new Node( value , current);
+                prev.next = newNode;
+                this.length++; 
+                return
+            }
             prev = current;
-            current = current.next;
+            current = current.next
+            counter++
         }
     }
 
